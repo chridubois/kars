@@ -3,9 +3,14 @@ class CarsController < ApplicationController
 
   def index
     @cars = Car.all
+    if params[:address].present?
+      @cars = @cars.where(addres: params[:address])
+    end
+
   end
 
   def show
+    @booking = Booking.new
   end
 
   private

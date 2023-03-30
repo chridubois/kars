@@ -1,0 +1,9 @@
+<div class="container">
+<br>
+  <h1>Mes locations</h1>
+  <div class="bookings-grid">
+    <% @bookings.each do |booking| %>
+      <%= render "booking-card", booking: booking %>
+    <% end %>
+  </div>
+</div>

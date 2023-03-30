@@ -1,6 +1,54 @@
-<h1>Cars#show</h1>
-<p>Find me in app/views/cars/show.html.erb</p>
-<%= @car.brand %>
-<%= @car.model %>
-<%= @car.address %>
-<%= @car.price_per_day %>
+<div class="container d-flex justify-content-between">
+  <div class="car-content">
+    <div class="comeback-link">
+      <%= link_to "< Revenir à la liste des voitures", cars_path %>
+    </div>
+    <div class="car-image">
+      <img src="https://img4.autodeclics.com/photo_article/91355/29182/1200-L-classic-car.jpg" alt="">
+    </div>
+    <div class="car-model">
+      <%= @car.brand %>  <%= @car.model %>
+    </div>
+    <div class="car-year">
+      <b>Année</b> : <%= @car.year_of_production %>
+    </div>
+    <div class="car-address">
+      <b>Adresse de départ et retour :</b> <%= @car.address %>
+    </div>
+    <div class="car-owner">
+      <b>Propriétaire</b> : <%= @car.user.email %>
+    </div>
+  </div>
+  <div class="booking-part">
+    <div class="booking-bloc">
+      <div class="booking-bloc-title text-center">
+        DATES
+      </div>
+      <%= simple_form_for [@car, @booking], class: "booking-form" do |f| %>
+        <div class="form-row">
+          <%= f.input :starts_at, as: :string,
+                wrapper_html: { class: "mb-4" },
+                label_html: { class: "d-none" },
+                :placeholder => 'Début',
+                input_html: { data: { controller: "flatpickr" } } %>
+        </div>
+        <div class="form-row">
+          <%= f.input :ends_at, as: :string,
+                wrapper_html: { class: "mb-4" },
+                label_html: { class: "d-none" },
+                :placeholder => 'Fin',
+                input_html: { data: { controller: "flatpickr" } } %>
+        </div>
+        <div class="car-price text-center">
+          <div class="price">
+            <%= @car.price_per_day %>€
+          </div>
+          <p class="text-center">PRIX MOY. / J</p>
+        </div>
+        <div class="form-row text-center">
+          <%= f.button :submit, class: "btn btn-flat", value: "Réserver" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

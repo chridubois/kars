@@ -1,0 +1,36 @@
+<div class="booking-card">
+  <div class="booking-bloc-car-image">
+    <img src="https://img4.autodeclics.com/photo_article/91355/29182/1200-L-classic-car.jpg" alt="">
+  </div>
+  <div class="booking-infos">
+    <div class="booking-dates">
+      Location du <%= booking.starts_at %> au <%= booking.ends_at %>
+    </div>
+    <div class="car-model">
+      <%= booking.car.brand %> <%= booking.car.model %>
+    </div>
+    <div class="booking-amount">
+      <%= booking.car.price_per_day %>€
+    </div>
+  </div>
+  <div class="booking-actions">
+    <div class="booking-status">
+      <% if booking.accepted %>
+        Acceptée
+      <% else %>
+        En attente
+      <% end %>
+    </div>
+    <div class="action-button">
+      <%= simple_form_for booking do |f| %>
+        <% if booking.accepted %>
+          <%= f.input :accepted, :as => :hidden, :input_html => { :value => "false" } %>
+          <%= f.button :submit, "Annuler", class: "btn btn-flat"%>
+        <% else %>
+          <%= f.input :accepted, :as => :hidden, :input_html => { :value => "true" } %>
+          <%= f.button :submit, "Accepter", class: "btn btn-flat"%>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
