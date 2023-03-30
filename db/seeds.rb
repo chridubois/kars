@@ -71,7 +71,7 @@ cars_urls[0..1].each do |url|
   html_file = URI.open(url).read
   html_doc = Nokogiri::HTML.parse(html_file)
 
-  # Get Car model
+  # Get Car modelg
   concat = html_doc.search('.col-sm-9 h2').first.text
 
   p concat
