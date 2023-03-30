@@ -1,12 +1,12 @@
 <div class="container">
   <div class="search-bloc">
     <div class="search-bloc-text">
-      <%= @cars.count %> voitures trouvées près de :
+      Les voitures les plus proches de :
     </div>
     <div class="form-bloc">
-      <form action="" class="d-flex">
+      <form action="/cars" class="d-flex">
         <div class="search-field">
-          <input type="text" class="form-control" placeholder="Adresse précise, gare, métro">
+          <input type="text" class="form-control" name="address" placeholder=<%= params[:address] %>>
         </div>
         <div class="search-button">
           <input type="submit" class="btn btn-flat" value="Rechercher">
@@ -14,9 +14,10 @@
       </form>
     </div>
   </div>
+  <% address_coordinates = Geocoder.coordinates(params[:address])  %>
   <div class="cards-grid">
     <% @cars.each do |car| %>
-      <%= render "card", car: car %>
+      <%= render "card", car: car, address_coordinates: address_coordinates %>
     <% end %>
   </div>
 </div>

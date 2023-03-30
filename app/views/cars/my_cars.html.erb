@@ -1,0 +1,9 @@
+<div class="container">
+  <br>
+  <h1>Mes voitures</h1>
+  <div class="cards-grid">
+    <% @cars.each do |car| %>
+      <%= render "my_cars_card", car: car %>
+    <% end %>
+  </div>
+</div>
