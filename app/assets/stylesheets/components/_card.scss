@@ -1,0 +1,45 @@
+.card {
+  background-color: #ffffff;
+  text-decoration: none;
+  color: black;
+  border: black solid 1px;
+}
+.card-content {
+
+}
+.card-img {
+display: flex;
+justify-content: center;
+}
+
+.card-img img {
+  width: 100%;
+}
+
+.card-infos {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.card-price {
+  background-color: black;
+  color: white;
+  padding: 5px 15px 5px 15px;
+  margin: 5px 5px 5px 5px;
+
+  .price {
+    font-size: 30px;
+    font-weight: bold;
+  }
+}
+
+.car-model {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.year {
+  font-size: 18px;
+  font-weight: bold;
+}

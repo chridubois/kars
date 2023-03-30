@@ -1,0 +1,23 @@
+<%= link_to car_path(car), class: "card" do %>
+  <div class="card-content">
+    <div class="card-img">
+      <img src="https://img4.autodeclics.com/photo_article/91355/29182/1200-L-classic-car.jpg" alt="">
+    </div>
+    <div class="card-infos">
+      <div class="card-text">
+        <div class="car-model">
+          <%= car.brand %> <%= car.model %>
+        </div>
+        <div class="car-year">
+          <%= car.year_of_production %>
+        </div>
+      </div>
+      <div class="card-price">
+        <div class="price">
+          <%= car.price_per_day %>€
+        </div>
+        <p class="text-center">/jour</p>
+      </div>
+    </div>
+  </div>
+<% end %>

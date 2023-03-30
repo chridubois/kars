@@ -1,2 +1,18 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://www.classiccars-in-gers.fr/wp-content/uploads/2020/05/cropped-DSC_4831_DSC_3481-scaled-1.jpg);">
+  <div class="container">
+    <div class="banner-bloc">
+      <h1>Louez une voiture de collection</h1>
+      <strong style="font-size: 38px; color: white;">en quelques clics</strong>
+      <p>Déverrouillez-la 24h/24 avec l'appli et partez !</p>
+      <form action="/cars" method="GET">
+        <div class="form-row">
+          <input type="text" class="form-control" placeholder="Adresse précise, gare, métro">
+        </div>
+        <div class="form-row pt-3">
+          <input type="submit" class="btn btn-flat" value="Rechercher">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<h2 class="text-center pt-3">Dernières voitures crées</h2>
