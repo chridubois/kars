@@ -1,0 +1,46 @@
+.booking-part{
+  margin-right: 100px;
+}
+
+.car-image img {
+width: 700px;
+}
+.booking-bloc {
+  border: solid 1px;
+  margin: 120px 30px 30px 30px;
+}
+.car-price {
+  .price {
+    font-size: 38px;
+    font-weight: bold;
+  }
+}
+.simple_form.new_booking {
+  padding: 20px;
+  .form-row {
+    width: 250px;
+  }
+}
+.booking-bloc-title {
+  font-size: 20px;
+}
+.car-content {
+  margin: 30px 30px 30px 30px;
+}
+
+.car-owner {
+  border: solid black 1px;
+  margin-top: 30px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
+.comeback-link {
+  margin-bottom: 30px;
+  a {
+    text-decoration: none;
+    color: black;
+  }
+}

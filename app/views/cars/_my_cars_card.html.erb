@@ -11,10 +11,6 @@
         <div class="car-year">
           <%= car.year_of_production %>
         </div>
-        <div class="car-distance">
-        <%  %>
-          <b>Distance :</b> <%= Geocoder::Calculations.distance_between(address_coordinates, [car.latitude,car.longitude]).round(2) %>km
-        </div>
       </div>
       <div class="card-price">
         <div class="price">

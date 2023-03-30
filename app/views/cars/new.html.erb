@@ -1,0 +1,12 @@
+<div class="container">
+  <br>
+  <h1>Gagnez de l'argent en louant votre voiture</h1>
+  <%= simple_form_for @car do |f| %>
+    <%= f.input :brand, label: "Marque" %>
+    <%= f.input :model, label: "Modèle" %>
+    <%= f.input :year_of_production, label: "Année de production" %>
+    <%= f.input :address, label: "Adresse" %>
+    <%= f.input :price_per_day, label: "Prix par jour" %>
+    <%= f.button :submit, "Commencer", class: "btn btn-flat" %>
+  <% end %>
+</div>

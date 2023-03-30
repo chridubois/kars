@@ -1,0 +1,21 @@
+.booking-card {
+  width: 100vh;
+  display: flex;
+  margin-top: 20px;
+  border: 1px solid black;
+}
+.booking-bloc-car-image img {
+  width: 300px;
+}
+.booking-infos {
+  margin-left: 20px;
+  flex-grow: 1;
+}
+.booking-actions {
+  margin-top: 30px;
+  margin-right: 20px;
+  text-align: center;
+}
+.action-button {
+  margin-top: 40px;
+}
