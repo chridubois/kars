@@ -1,0 +1,14 @@
+.search-bloc{
+  display: flex;
+  margin: auto;
+}
+.form-bloc{
+  display: flex;
+  align-items: center;
+}
+.cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 10px;
+  row-gap: 15px;
+}

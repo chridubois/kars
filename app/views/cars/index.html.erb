@@ -1,3 +1,22 @@
-<h1>Cars#index</h1>
-<p>Find me in app/views/cars/index.html.erb</p>
-<%= @cars %>
+<div class="container">
+  <div class="search-bloc">
+    <div class="search-bloc-text">
+      123 voitures trouvées près de :
+    </div>
+    <div class="form-bloc">
+      <form action="" class="d-flex">
+        <div class="search-field">
+          <input type="text" class="form-control" placeholder="Adresse précise, gare, métro">
+        </div>
+        <div class="search-button">
+          <input type="submit" class="btn btn-flat" value="Rechercher">
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="cards-grid">
+    <% @cars.each do |car| %>
+      <%= render "card", car: car %>
+    <% end %>
+  </div>
+</div>
