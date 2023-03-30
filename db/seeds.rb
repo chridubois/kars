@@ -72,7 +72,13 @@ cars_urls[0..1].each do |url|
   html_doc = Nokogiri::HTML.parse(html_file)
 
   # Get Car model
-  model = html_doc.search('.col-sm-9 h2').text
+  concat = html_doc.search('.col-sm-9 h2').first.text
+
+  p concat
+  brand = concat.split.first
+  model = concat.split(' ')[1..-1].join(' ')
+
+  p brand
   p model
 
   # Get Car image
