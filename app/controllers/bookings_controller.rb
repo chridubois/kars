@@ -3,7 +3,7 @@ class BookingsController < ApplicationController
     @bookings = []
     @cars = Car.where(user: current_user)
     @cars.each do |car|
-      my_bookings = Booking.where(car: car)
+      my_bookings = Booking.where(car: car).order(created_at: :asc)
       my_bookings.each do |booking|
         @bookings << booking
       end
@@ -11,7 +11,7 @@ class BookingsController < ApplicationController
   end
 
   def rent_cars
-    @bookings = Booking.where(user: current_user)
+    @bookings = Booking.where(user: current_user).order(created_at: :desc)
   end
 
   def update
