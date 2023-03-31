@@ -1,6 +1,8 @@
 <div class="booking-card">
   <div class="booking-bloc-car-image">
-    <img src="<%= booking.car.image_url %>" alt="">
+    <%= link_to car_path(booking.car) do %>
+      <img src="<%= booking.car.image_url %>" alt="">
+    <% end %>
   </div>
   <div class="booking-infos">
     <div class="booking-dates">
@@ -10,7 +12,7 @@
       <%= booking.car.brand %> <%= booking.car.model %>
     </div>
     <div class="booking-amount">
-      <%= booking.car.price_per_day %>€
+      <%= booking.car.price_per_day.round(2) %>€
     </div>
   </div>
   <div class="booking-actions">

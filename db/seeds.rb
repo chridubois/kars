@@ -28,12 +28,8 @@ User.create(
 
 # # Cars seeds
 pages_count = 0
-while pages_count < 25
+while pages_count < 3
   url = "https://www.classicnumber.com/cars-list.php?np=#{pages_count}/"
-  html_file = URI.open(url).read
-  html_doc = Nokogiri::HTML.parse(html_file)
-
-  url = "https://www.classicnumber.com/cars-list.php"
   html_file = URI.open(url).read
   html_doc = Nokogiri::HTML.parse(html_file)
 
@@ -58,40 +54,26 @@ while pages_count < 25
     #Get Car Address
     address = html_doc.xpath("//div[contains(@class, 'seller-address place')]/a").first.attribute_nodes[2].value
 
-    Car.create(
-      brand:,
-      model:,
-      year_of_production: year,
-      address:,
-      image_url:,
-      price_per_day: rand(11.2...99.9),
-      user: User.find(rand(User.first.id..User.last.id))
-    )
+    find_car = Car.find_by(brand:, model:)
+    if find_car.nil?
+      Car.create(
+        brand:,
+        model:,
+        year_of_production: year,
+        address:,
+        image_url:,
+        price_per_day: rand(11.2...99.9),
+        user: User.find(rand(User.first.id..User.last.id))
+      )
+    end
     p "A car has been created from page #{pages_count} !"
   end
   pages_count += 1
 end
 p "#{Car.all.count} cars has been created"
 
-# i = 1
-# nb_cars = 10
-# p "Création de #{nb_cars} voitures"
-# while i <= nb_cars
-#   Car.create(
-#     brand: "Renault",
-#     model: "Clio #{i}",
-#     address: "#{i} rue Sainte Cécile 13005 Marseille",
-#     year_of_production: 1990 + i,
-#     price_per_day: 23.99 + i,
-#     user: User.find(rand(User.first.id..User.last.id))
-#   )
-#   i += 1
-# end
-
-# Bookings seeds
-
 i = 1
-nb_bookings = 10
+nb_bookings = 30
 p "Création de #{nb_bookings} bookings"
 while i <= nb_bookings
   starts_at = (Date.today - rand(1..30))
