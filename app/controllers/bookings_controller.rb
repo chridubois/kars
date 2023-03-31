@@ -1,5 +1,16 @@
 class BookingsController < ApplicationController
   def index
+    @bookings = []
+    @cars = Car.where(user: current_user)
+    @cars.each do |car|
+      my_bookings = Booking.where(car: car)
+      my_bookings.each do |booking|
+        @bookings << booking
+      end
+    end
+  end
+
+  def rent_cars
     @bookings = Booking.where(user: current_user)
   end
 

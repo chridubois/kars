@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   end
   resources :bookings, only: %i[index update]
   get "my_cars", to: "cars#my_cars"
+  get "rent_cars", to: "bookings#rent_cars"
 end
