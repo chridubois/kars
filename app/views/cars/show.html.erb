@@ -4,7 +4,7 @@
       <%= link_to "< Revenir à la liste des voitures", cars_path %>
     </div>
     <div class="car-image">
-      <img src="https://img4.autodeclics.com/photo_article/91355/29182/1200-L-classic-car.jpg" alt="">
+      <img src="<%= @car.image_url %>" alt="">
     </div>
     <div class="car-model">
       <%= @car.brand %>  <%= @car.model %>
@@ -28,22 +28,15 @@
         <div class="form-row">
           <%= f.input :starts_at, as: :string,
                 wrapper_html: { class: "mb-4" },
-                label_html: { class: "d-none" },
-                :placeholder => 'Début',
-                input_html: { data: { controller: "flatpickr" } } %>
-        </div>
-        <div class="form-row">
-          <%= f.input :ends_at, as: :string,
-                wrapper_html: { class: "mb-4" },
-                label_html: { class: "d-none" },
-                :placeholder => 'Fin',
-                input_html: { data: { controller: "flatpickr" } } %>
+                label: "Ta période de location",
+                :placeholder => 'Choix de dates',
+                input_html: { data: { controller: "flatpickr" }, "data-flatpickr-range-value" => @booked_dates_range.to_json  } %>
         </div>
         <div class="car-price text-center">
           <div class="price">
-            <%= @car.price_per_day %>€
+            <%= @car.price_per_day.round(2) %>€
           </div>
-          <p class="text-center">PRIX MOY. / J</p>
+          <p class="price_per_day text-center"><%= @car.price_per_day.round(2) %>€ / jour</p>
         </div>
         <div class="form-row text-center">
           <%= f.button :submit, class: "btn btn-flat", value: "Réserver" %>

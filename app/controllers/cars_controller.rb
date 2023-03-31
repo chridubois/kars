@@ -27,7 +27,15 @@ class CarsController < ApplicationController
   end
 
   def show
+    @booked_dates_range = []
     @booking = Booking.new
+    old_bookings = Booking.where(car: @car, accepted: true)
+    old_bookings.each do |booking|
+      @booked_dates_range << {
+        "from" => booking.starts_at.strftime('%Y-%m-%d'),
+        "to" => booking.ends_at.strftime('%Y-%m-%d')
+      }
+    end
   end
 
   private

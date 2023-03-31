@@ -1,7 +1,7 @@
 <%= link_to car_path(car), class: "card" do %>
   <div class="card-content">
     <div class="card-img">
-      <img src="https://img4.autodeclics.com/photo_article/91355/29182/1200-L-classic-car.jpg" alt="">
+      <img src="<%= car.image_url %>" alt="">
     </div>
     <div class="card-infos">
       <div class="card-text">
@@ -11,10 +11,11 @@
         <div class="car-year">
           <%= car.year_of_production %>
         </div>
-        <div class="car-distance">
-        <%  %>
-          <b>Distance :</b> <%= Geocoder::Calculations.distance_between(address_coordinates, [car.latitude,car.longitude]).round(2) %>km
-        </div>
+        <% if address_coordinates %>
+          <div class="car-distance">
+            <b>Distance :</b> <%= Geocoder::Calculations.distance_between(address_coordinates, [car.latitude,car.longitude]).round(2) %>km
+          </div>
+        <% end %>
       </div>
       <div class="card-price">
         <div class="price">

@@ -15,4 +15,13 @@
     </div>
   </div>
 </div>
-<h2 class="text-center pt-3">Dernières voitures crées</h2>
+<br>
+<h2 class="text-center pt-3">Dernières voitures ajoutées</h2>
+<br>
+<div class="container">
+  <div class="cards-grid">
+    <% @cars.each do |car| %>
+      <%= render "cars/my_cars_card", car: car %>
+    <% end %>
+  </div>
+</div>
