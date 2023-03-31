@@ -23,16 +23,18 @@
         En attente
       <% end %>
     </div>
-    <div class="action-button">
-      <%= simple_form_for booking do |f| %>
-        <% if booking.accepted %>
-          <%= f.input :accepted, :as => :hidden, :input_html => { :value => "false" } %>
-          <%= f.button :submit, "Annuler", class: "btn btn-flat"%>
-        <% else %>
-          <%= f.input :accepted, :as => :hidden, :input_html => { :value => "true" } %>
-          <%= f.button :submit, "Accepter", class: "btn btn-flat"%>
+    <% if booking.car.user == current_user %>
+      <div class="action-button">
+        <%= simple_form_for booking do |f| %>
+          <% if booking.accepted %>
+            <%= f.input :accepted, :as => :hidden, :input_html => { :value => "false" } %>
+            <%= f.button :submit, "Annuler", class: "btn btn-flat"%>
+          <% else %>
+            <%= f.input :accepted, :as => :hidden, :input_html => { :value => "true" } %>
+            <%= f.button :submit, "Accepter", class: "btn btn-flat"%>
+          <% end %>
         <% end %>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
 </div>
